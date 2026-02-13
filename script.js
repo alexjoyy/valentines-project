@@ -77,6 +77,7 @@ if (musicToggle && bgMusic) {
 }
 
 if (yesBtn && response) {
+if (yesBtn && noBtn && response) {
   yesBtn.addEventListener("click", () => {
     response.textContent = "YAY! You just made me the happiest person alive! 💕";
     yesBtn.textContent = "Best Valentine Ever 💗";
