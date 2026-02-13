@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <audio id="bgMusic" loop preload="auto">
+      <source src="Khat Navjot Ahuja (pagalall.com).mp3" type="audio/mpeg" />
+    </audio>
+
     <header class="site-header">
       <nav class="nav">
         <a class="logo" href="index.html">💘 Us</a>
@@ -26,6 +30,8 @@
           Every page is just a tiny reminder of how happy you make me. Click
           through to see why you are the best part of my life.
         </p>
+        <button id="musicToggle" class="btn" type="button">▶️ Play our song</button>
+        <p id="musicStatus" class="music-status" aria-live="polite"></p>
         <a class="btn" href="story.html">Start Here</a>
       </section>
 
@@ -48,5 +54,56 @@
     </main>
 
     <footer class="site-footer">Made with love ❤️</footer>
+
+    <script>
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+      const musicStatus = document.getElementById("musicStatus");
+
+      const setStatus = (message) => {
+        if (musicStatus) {
+          musicStatus.textContent = message;
+        }
+      };
+
+      const playMusic = async () => {
+        if (!bgMusic) return;
+
+        try {
+          await bgMusic.play();
+          if (musicToggle) {
+            musicToggle.textContent = "⏸️ Pause our song";
+          }
+          setStatus("Now playing 💖");
+        } catch (error) {
+          setStatus("Tap the play button to start the music.");
+        }
+      };
+
+      if (bgMusic) {
+        bgMusic.volume = 0.7;
+
+        bgMusic.addEventListener("error", () => {
+          setStatus(
+            'Song file not found. Place "Khat Navjot Ahuja (pagalall.com).mp3" in this project folder.'
+          );
+        });
+
+        playMusic();
+      }
+
+      if (musicToggle && bgMusic) {
+        musicToggle.addEventListener("click", async () => {
+          if (bgMusic.paused) {
+            await playMusic();
+            return;
+          }
+
+          bgMusic.pause();
+          musicToggle.textContent = "▶️ Play our song";
+          setStatus("Music paused.");
+        });
+      }
+    </script>
   </body>
 </html>
