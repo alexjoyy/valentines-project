@@ -1,0 +1,150 @@
+:root {
+  --bg: #fff5f8;
+  --panel: #ffffff;
+  --text: #3d1f2f;
+  --muted: #7f5c6f;
+  --accent: #ff4f87;
+  --accent-deep: #ff2f72;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #ffe3ed, var(--bg));
+  display: flex;
+  flex-direction: column;
+}
+
+.site-header {
+  padding: 1rem;
+}
+
+.nav {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--accent-deep);
+}
+
+.container {
+  width: min(900px, 92vw);
+  margin: 1.5rem auto;
+  flex: 1;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(255, 79, 135, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.kicker {
+  color: var(--accent-deep);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  color: #fff;
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--accent-deep);
+  border: 2px solid #ffc4d8;
+}
+
+.timeline {
+  border-left: 3px solid #ffd1e0;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-item {
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.response {
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}
