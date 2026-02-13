@@ -92,3 +92,18 @@ if (yesBtn && noBtn && response) {
     response.textContent = "Hmm... let's pretend you clicked yes 😄";
   });
 }
+
+const slideshows = document.querySelectorAll("[data-slideshow]");
+
+slideshows.forEach((slideshow) => {
+  const slides = slideshow.querySelectorAll(".slideshow-image");
+  if (slides.length <= 1) return;
+
+  let currentIndex = 0;
+
+  setInterval(() => {
+    slides[currentIndex].classList.remove("is-active");
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add("is-active");
+  }, 3000);
+});
