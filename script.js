@@ -76,15 +76,12 @@ if (musicToggle && bgMusic) {
   });
 }
 
-if (yesBtn && response) {
 if (yesBtn && noBtn && response) {
   yesBtn.addEventListener("click", () => {
     response.textContent = "YAY! You just made me the happiest person alive! 💕";
     yesBtn.textContent = "Best Valentine Ever 💗";
   });
-}
 
-if (noBtn && response) {
   noBtn.addEventListener("mouseenter", () => {
     const x = Math.floor(Math.random() * 160) - 80;
     const y = Math.floor(Math.random() * 80) - 40;
