@@ -170,6 +170,7 @@ h3 {
   height: 100%;
   object-fit: contain;
   background: rgba(255, 255, 255, 0.5);
+  object-fit: cover;
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(61, 31, 47, 0.2);
   opacity: 0;
